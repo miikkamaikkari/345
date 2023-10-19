@@ -1,24 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Miikkamaikkari</title>
     <style>
         body {
+            margin: 0;
+            padding: 0;
             background-color: black;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+            transition: background-color 0.5s;
+        }
+        h1 {
+            font-size: 72px;
+            text-transform: uppercase;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+            transition: font-size 1s, margin-top 1s;
+        }
+        h1:hover {
+            font-size: 100px;
+            margin-top: 10vh;
+        }
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+            display: block;
+            margin: 20px;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+        a.fade-in {
+            opacity: 1;
+        }
+        section {
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
+            transition: background-color 0.5s;
         }
-        h1 {
-            color: white;
-            font-size: 24px;
-            font-family: 'Arial', sans-serif; /* You can use 'Arial' as an example of a square font */
+        #youtube-link {
+            background-color: black
+           ;
+        }
+        #instagram-link {
+            background-color: black;
+        }
+        .contact-info {
+            background-color: black;
         }
     </style>
 </head>
 <body>
-    <h1>MIIKKAMAIKKARI </h1>
+    <h1>Miikkamaikkari</h1>
+    <section id="youtube-link">
+        <a href="https://www.youtube.com/@miikkamaikkari" target="_blank" class="fade-in">YouTube @miikkamaikkari</a>
+    </section>
+    <section id="instagram-link">
+        <a href="https://www.instagram.com/@miikkakoponen" target="_blank" class="fade-in">Instagram</a>
+    </section>
+    <section class="contact-info">
+        <h2>Contact Information: </h2>
+        <p>
+        </p>
+        <p>     Email: info@miikkamaikkari.com
+    </section>
+    <script>
+        // JavaScript to add the "fade-in" class to the links when they become visible
+        window.addEventListener('scroll', () => {
+            const youtubeLink = document.getElementById('youtube-link');
+            const instagramLink = document.getElementById('instagram-link');
+            const yOffset = window.scrollY;
+
+            // Calculate the threshold for visibility
+            const threshold = 0.5 * window.innerHeight;
+
+            if (youtubeLink.getBoundingClientRect().top - threshold < 0) {
+                youtubeLink.querySelector('a').classList.add('fade-in');
+            }
+            if (instagramLink.getBoundingClientRect().top - threshold < 0) {
+                instagramLink.querySelector('a').classList.add('fade-in');
+            }
+        });
+    </script>
 </body>
 </html>
-
